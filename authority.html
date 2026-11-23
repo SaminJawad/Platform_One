@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Authority Control Center | Railway Management System</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true"></span>
+      <span><b>Railway</b><span>Management System</span></span>
+    </a>
+    <nav class="nav" aria-label="Authority sections">
+      <a class="on" href="#operations">Operations</a>
+      <a href="#trains">Trains</a>
+      <a href="#schedules">Schedules</a>
+      <a href="#maintenance">Fitness and maintenance</a>
+      <a href="#emergencies">Emergencies</a>
+      <a href="#reports">Reports</a>
+      <a href="#users">Users</a>
+    </nav>
+    <div class="who">
+      <span class="label">Railway authority</span>
+      <b>Control Room, Dhaka</b>
+      <a href="index.html">Log out</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <span class="label">Authority control center</span>
+        <h1>Network operations</h1>
+      </div>
+      <p class="stamp">Sample data<br>16 Nov 2026, 10:15</p>
+    </header>
+
+    <section class="section" id="operations">
+      <h2>Live operations</h2>
+      <p class="lede">Every train in service right now, with the latest GPS-based status.</p>
+
+      <div class="kpis" style="margin-bottom:20px">
+        <div class="kpi"><span class="label">Trains in service</span><span class="v num">42</span><span class="d">of 58 in the fleet</span></div>
+        <div class="kpi"><span class="label">On time</span><span class="v num">36</span><span class="d">86% of services</span></div>
+        <div class="kpi"><span class="label">Delayed</span><span class="v num">5</span><span class="d">longest 34 min</span></div>
+        <div class="kpi"><span class="label">Open emergencies</span><span class="v num">1</span><span class="d">1 acknowledged</span></div>
+      </div>
+
+      <div class="board" role="table" aria-label="Live train status">
+        <div class="in">
+          <div class="row head" role="row"><span>Train</span><span>Position</span><span>Speed</span><span>Next stop</span><span>Status</span></div>
+          <div class="row" role="row"><span>701</span><span>Bhairab to Comilla</span><span>78 km/h</span><span>Comilla 10:40</span><span class="ok">On time</span></div>
+          <div class="row" role="row"><span>703</span><span>Tongi</span><span>24 km/h</span><span>Bhairab 10:58</span><span class="late">Delayed 12m</span></div>
+          <div class="row" role="row"><span>709</span><span>Sreemangal</span><span>0 km/h</span><span>Sylhet 11:50</span><span class="stop">Stopped, incident</span></div>
+          <div class="row" role="row"><span>723</span><span>Akhaura</span><span>64 km/h</span><span>Brahmanbaria 10:30</span><span class="ok">On time</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trains">
+      <h2>Manage trains</h2>
+      <p class="lede">Add, edit or take a train out of service.</p>
+      <div class="panel">
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>No.</th><th>Name</th><th>Route</th><th>Coaches</th><th>Status</th><th class="r">Actions</th></tr></thead>
+            <tbody>
+              <tr><td class="num">701</td><td><b>Subarna Express</b></td><td>Dhaka &ndash; Chattogram</td><td class="num">14</td><td><span class="pill good">In service</span></td><td class="r"><span class="actions" style="justify-content:flex-end"><a class="btn sm ghost" href="#trains">Edit</a><a class="btn sm ghost" href="#trains">Suspend</a></span></td></tr>
+              <tr><td class="num">703</td><td><b>Mahanagar Provati</b></td><td>Dhaka &ndash; Chattogram</td><td class="num">16</td><td><span class="pill warn">Delayed</span></td><td class="r"><span class="actions" style="justify-content:flex-end"><a class="btn sm ghost" href="#trains">Edit</a><a class="btn sm ghost" href="#trains">Suspend</a></span></td></tr>
+              <tr><td class="num">709</td><td><b>Parabat Express</b></td><td>Dhaka &ndash; Sylhet</td><td class="num">15</td><td><span class="pill bad">Stopped</span></td><td class="r"><span class="actions" style="justify-content:flex-end"><a class="btn sm ghost" href="#trains">Edit</a><a class="btn sm ghost" href="#emergencies">View alert</a></span></td></tr>
+              <tr><td class="num">745</td><td><b>Silk City Express</b></td><td>Dhaka &ndash; Rajshahi</td><td class="num">12</td><td><span class="pill info">Maintenance</span></td><td class="r"><span class="actions" style="justify-content:flex-end"><a class="btn sm ghost" href="#trains">Edit</a><a class="btn sm" href="#trains">Return to service</a></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="schedules">
+      <h2>Schedules</h2>
+      <p class="lede">Create a departure. Changes reach passengers as notifications.</p>
+      <form class="panel form-stack" action="authority.html#schedules" method="get">
+        <div class="form-grid">
+          <div class="field"><label for="s-train">Train</label><select id="s-train"><option>701 Subarna Express</option><option>703 Mahanagar Provati</option><option>709 Parabat Express</option></select></div>
+          <div class="field"><label for="s-from">From</label><select id="s-from"><option>Dhaka</option><option>Chattogram</option><option>Sylhet</option></select></div>
+          <div class="field"><label for="s-to">To</label><select id="s-to"><option>Chattogram</option><option>Dhaka</option><option>Sylhet</option></select></div>
+          <div class="field"><label for="s-time">Departure</label><input id="s-time" type="time" value="07:30"></div>
+          <div class="field"><label for="s-plat">Platform</label><input id="s-plat" type="number" min="1" value="3"></div>
+        </div>
+        <div class="actions"><button class="btn" type="submit">Publish schedule</button><a class="btn ghost" href="#schedules">Notify passengers of a change</a></div>
+      </form>
+    </section>
+
+    <section class="section" id="maintenance">
+      <h2>Fitness and maintenance</h2>
+      <p class="lede">Locomotive and coach checks, sorted by what needs attention first.</p>
+      <div class="panel">
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Unit</th><th>Type</th><th>Last inspected</th><th>Next due</th><th>Fitness</th></tr></thead>
+            <tbody>
+              <tr><td class="num"><b>LOCO-2217</b></td><td>Locomotive</td><td class="num">02 Oct 2026</td><td class="num">Overdue 4 days</td><td><span class="pill bad">Unfit, inspect now</span></td></tr>
+              <tr><td class="num"><b>COACH-4408</b></td><td>AC chair coach</td><td class="num">28 Oct 2026</td><td class="num">in 6 days</td><td><span class="pill warn">Due soon</span></td></tr>
+              <tr><td class="num"><b>LOCO-2190</b></td><td>Locomotive</td><td class="num">09 Nov 2026</td><td class="num">in 31 days</td><td><span class="pill good">Fit</span></td></tr>
+              <tr><td class="num"><b>COACH-3315</b></td><td>Women's coach</td><td class="num">11 Nov 2026</td><td class="num">in 33 days</td><td><span class="pill good">Fit</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="emergencies">
+      <h2>Emergencies</h2>
+      <p class="lede">Alerts sent by train operators. Railway police receive the same alert.</p>
+      <div class="panel">
+        <ul class="feed">
+          <li class="bad"><b>Train 709, track obstruction near Sreemangal</b><span class="when">10:02</span><p>Reported by operator Karim Hossain. Track crew dispatched. Passengers notified.</p></li>
+          <li class="good"><b>Train 701, door sensor fault</b><span class="when">12 Nov</span><p>Resolved at Bhairab. Closed by control room.</p></li>
+        </ul>
+        <div class="actions" style="margin-top:14px"><a class="btn sm" href="#emergencies">Acknowledge alert</a><a class="btn sm ghost" href="#emergencies">Notify railway police</a></div>
+      </div>
+    </section>
+
+    <section class="section" id="reports">
+      <h2>Reports</h2>
+      <p class="lede">On-time performance by day, last 7 days.</p>
+      <div class="split">
+        <div class="panel chart">
+          <span class="label">On-time services, %</span>
+          <div class="bars" role="img" aria-label="On-time percentage per day: Mon 88, Tue 91, Wed 84, Thu 79, Fri 86, Sat 90, Sun 86">
+            <div class="bar" style="--h:88%"><b>88</b><i></i></div>
+            <div class="bar" style="--h:91%"><b>91</b><i></i></div>
+            <div class="bar" style="--h:84%"><b>84</b><i></i></div>
+            <div class="bar hi" style="--h:79%"><b>79</b><i></i></div>
+            <div class="bar" style="--h:86%"><b>86</b><i></i></div>
+            <div class="bar" style="--h:90%"><b>90</b><i></i></div>
+            <div class="bar" style="--h:86%"><b>86</b><i></i></div>
+          </div>
+          <div class="barlabs"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        </div>
+        <form class="panel form-stack" action="authority.html#reports" method="get">
+          <h3>Generate a report</h3>
+          <div class="field"><label for="r-type">Report</label><select id="r-type"><option>On-time performance</option><option>Tickets and revenue</option><option>Incidents</option><option>Maintenance status</option></select></div>
+          <div class="field"><label for="r-period">Period</label><select id="r-period"><option>Last 7 days</option><option>Last 30 days</option><option>This quarter</option></select></div>
+          <button class="btn" type="submit">Generate</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="users">
+      <h2>Manage users</h2>
+      <p class="lede">Accounts by role. Operators are verified by the authority before first login.</p>
+      <div class="panel">
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Name</th><th>Role</th><th>Email</th><th>Status</th><th class="r">Actions</th></tr></thead>
+            <tbody>
+              <tr><td><b>Rahim Uddin</b></td><td>Train operator</td><td>rahim@example.com</td><td><span class="pill good">Active</span></td><td class="r"><span class="actions" style="justify-content:flex-end"><a class="btn sm ghost" href="#users">Edit</a><a class="btn sm ghost" href="#users">Disable</a></span></td></tr>
+              <tr><td><b>Karim Hossain</b></td><td>Train operator</td><td>karim@example.com</td><td><span class="pill warn">Awaiting verification</span></td><td class="r"><span class="actions" style="justify-content:flex-end"><a class="btn sm" href="#users">Verify</a><a class="btn sm ghost" href="#users">Reject</a></span></td></tr>
+              <tr><td><b>Samin Jawad</b></td><td>Passenger</td><td>samin@example.com</td><td><span class="pill good">Active</span></td><td class="r"><span class="actions" style="justify-content:flex-end"><a class="btn sm ghost" href="#users">Edit</a><a class="btn sm ghost" href="#users">Disable</a></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <p class="foot">Railway Management System, authority view. All figures and names are sample data.</p>
+  </main>
+</div>
+</body>
+</html>

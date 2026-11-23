@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Railway Management System</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="auth login">
+
+  <section class="sign" aria-label="Platform overview">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true"></span>
+      <span><b>Railway</b><span>Management System</span></span>
+    </a>
+
+    <div>
+      <h1>Know where your train is.</h1>
+      <p class="lead">One platform for passengers, train operators and the railway authority: live location, tickets, seats and safety alerts.</p>
+    </div>
+
+    <div class="board" role="table" aria-label="Sample departures">
+      <div class="in">
+        <div class="row head" role="row"><span>Train</span><span>Route</span><span>Dep.</span><span>Platform</span><span>Status</span></div>
+        <div class="row" role="row"><span>701</span><span>Dhaka &rarr; Chattogram</span><span>07:30</span><span>Plat. 3</span><span class="ok">On time</span></div>
+        <div class="row" role="row"><span>709</span><span>Dhaka &rarr; Sylhet</span><span>06:20</span><span>Plat. 5</span><span class="late">Delayed 12m</span></div>
+        <div class="row" role="row"><span>741</span><span>Dhaka &rarr; Chattogram</span><span>23:00</span><span>Plat. 2</span><span class="ok">On time</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="formside">
+    <form class="formcard" action="index.html" method="get">
+      <div>
+        <span class="label">Log in</span>
+        <h2>Choose your role to continue</h2>
+      </div>
+
+      <fieldset style="border:0;padding:0;margin:0;min-width:0">
+        <legend class="label" style="margin-bottom:10px">Role</legend>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="role" id="r-passenger" checked>
+            <span class="box"><b>Passenger</b><span>Search trains, book tickets, track live</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="role" id="r-operator">
+            <span class="box"><b>Train Operator</b><span>Share GPS, update status, report incidents</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="role" id="r-authority">
+            <span class="box"><b>Railway Authority</b><span>Manage trains, schedules and maintenance</span></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="email">Email or phone</label>
+        <input id="email" name="email" type="text" autocomplete="username" placeholder="name@example.com">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Your password">
+      </div>
+
+      <div class="actions">
+        <a class="btn go p" href="passenger.html">Log in as Passenger</a>
+        <a class="btn go o" href="operator.html">Log in as Operator</a>
+        <a class="btn go a" href="authority.html">Log in as Authority</a>
+      </div>
+
+      <p class="switchline">New passenger? <a href="register.html">Create an account</a></p>
+      <p class="hint">Demo build: the button opens the dashboard for the selected role. No data is sent anywhere.</p>
+    </form>
+  </section>
+
+</div>
+</body>
+</html>

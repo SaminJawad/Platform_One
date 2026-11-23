@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passenger Dashboard | Railway Management System</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true"></span>
+      <span><b>Railway</b><span>Management System</span></span>
+    </a>
+    <nav class="nav" aria-label="Passenger sections">
+      <a class="on" href="#search">Search trains</a>
+      <a href="#seats">Seats and booking</a>
+      <a href="#tracking">Live tracking</a>
+      <a href="#tickets">My tickets</a>
+      <a href="#alerts">Alerts</a>
+    </nav>
+    <div class="who">
+      <span class="label">Passenger</span>
+      <b>Samin Jawad</b>
+      <a href="index.html">Log out</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <span class="label">Passenger dashboard</span>
+        <h1>Plan your journey</h1>
+      </div>
+      <p class="stamp">Sample data<br>Dhaka (Kamalapur)</p>
+    </header>
+
+    <section class="section" id="search">
+      <h2>Search trains</h2>
+      <p class="lede">Pick a route and date to see departures, fares and how many seats are left.</p>
+
+      <form class="panel" action="passenger.html#search" method="get">
+        <div class="form-grid">
+          <div class="field">
+            <label for="from">From</label>
+            <select id="from" name="from">
+              <option selected>Dhaka</option><option>Chattogram</option><option>Sylhet</option><option>Rajshahi</option><option>Khulna</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="to">To</label>
+            <select id="to" name="to">
+              <option>Dhaka</option><option selected>Chattogram</option><option>Sylhet</option><option>Rajshahi</option><option>Khulna</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="date">Date</label>
+            <input id="date" name="date" type="date" value="2026-12-20">
+          </div>
+          <div class="field">
+            <label for="class">Class</label>
+            <select id="class" name="class">
+              <option>Any class</option><option selected>AC chair</option><option>First class</option><option>Snigdha</option><option>Shovan</option>
+            </select>
+          </div>
+          <button class="btn" type="submit">Find trains</button>
+        </div>
+      </form>
+
+      <div class="panel" style="margin-top:20px">
+        <span class="label">Dhaka to Chattogram, 20 Dec 2026</span>
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr><th>Train</th><th>Departs</th><th>Arrives</th><th>Seats left</th><th>Fare (BDT)</th><th>Status</th><th></th></tr>
+            </thead>
+            <tbody>
+              <tr class="sel">
+                <td><b>Subarna Express</b><span class="sub num">701</span></td>
+                <td class="num">07:30</td><td class="num">12:45</td>
+                <td><div class="seats"><div class="meter"><i style="width:62%"></i></div><span class="num">48</span></div></td>
+                <td class="num">1,250</td>
+                <td><span class="pill good">On time</span> <span class="pill women">Women's coach</span></td>
+                <td><a class="btn sm" href="#seats">Select</a></td>
+              </tr>
+              <tr>
+                <td><b>Mahanagar Provati</b><span class="sub num">703</span></td>
+                <td class="num">09:15</td><td class="num">14:40</td>
+                <td><div class="seats"><div class="meter low"><i style="width:91%"></i></div><span class="num">7</span></div></td>
+                <td class="num">980</td>
+                <td><span class="pill warn">Delayed 12 min</span> <span class="pill women">Women's coach</span></td>
+                <td><a class="btn sm ghost" href="#seats">Select</a></td>
+              </tr>
+              <tr>
+                <td><b>Turna Nishitha</b><span class="sub num">741</span></td>
+                <td class="num">23:00</td><td class="num">04:55</td>
+                <td><div class="seats"><div class="meter full"><i style="width:100%"></i></div><span class="num">0</span></div></td>
+                <td class="num">860</td>
+                <td><span class="pill bad">Sold out</span></td>
+                <td><a class="btn sm ghost" href="#seats">Waitlist</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="seats">
+      <h2>Seats and booking</h2>
+      <p class="lede">Subarna Express 701, coach KHA (women's coach). Greyed seats are taken.</p>
+
+      <div class="split">
+        <div class="panel">
+          <span class="label">Coach KHA</span>
+          <div class="coach" role="group" aria-label="Seat map">
+            <div class="row"><span class="rn">1</span>
+              <label class="seat"><input type="checkbox" disabled><span>1A</span></label><label class="seat"><input type="checkbox" disabled><span>1B</span></label><span></span><label class="seat"><input type="checkbox"><span>1C</span></label><label class="seat"><input type="checkbox"><span>1D</span></label></div>
+            <div class="row"><span class="rn">2</span>
+              <label class="seat"><input type="checkbox" disabled><span>2A</span></label><label class="seat"><input type="checkbox"><span>2B</span></label><span></span><label class="seat"><input type="checkbox"><span>2C</span></label><label class="seat"><input type="checkbox" disabled><span>2D</span></label></div>
+            <div class="row"><span class="rn">3</span>
+              <label class="seat"><input type="checkbox"><span>3A</span></label><label class="seat"><input type="checkbox"><span>3B</span></label><span></span><label class="seat"><input type="checkbox" disabled><span>3C</span></label><label class="seat"><input type="checkbox"><span>3D</span></label></div>
+            <div class="row"><span class="rn">4</span>
+              <label class="seat"><input type="checkbox" checked><span>4A</span></label><label class="seat"><input type="checkbox" checked><span>4B</span></label><span></span><label class="seat"><input type="checkbox"><span>4C</span></label><label class="seat"><input type="checkbox" disabled><span>4D</span></label></div>
+            <div class="row"><span class="rn">5</span>
+              <label class="seat"><input type="checkbox"><span>5A</span></label><label class="seat"><input type="checkbox" disabled><span>5B</span></label><span></span><label class="seat"><input type="checkbox"><span>5C</span></label><label class="seat"><input type="checkbox"><span>5D</span></label></div>
+          </div>
+          <p class="legend" style="margin-top:14px"><span><i></i>Free</span><span><i class="s"></i>Selected</span><span><i class="t"></i>Taken</span></p>
+        </div>
+
+        <div class="panel form-stack">
+          <h3>Booking summary</h3>
+          <dl style="margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px">
+            <dt class="muted">Train</dt><dd style="margin:0;text-align:right"><b>701 Subarna Express</b></dd>
+            <dt class="muted">Seats</dt><dd style="margin:0;text-align:right" class="num">4A, 4B</dd>
+            <dt class="muted">Fare</dt><dd style="margin:0;text-align:right" class="num">2 &times; 1,250</dd>
+            <dt class="muted">Service charge</dt><dd style="margin:0;text-align:right" class="num">50</dd>
+            <dt><b>Total (BDT)</b></dt><dd style="margin:0;text-align:right" class="num"><b>2,550</b></dd>
+          </dl>
+          <div class="field">
+            <label for="pay">Payment method</label>
+            <select id="pay" name="pay"><option>Mobile wallet</option><option>Debit or credit card</option><option>Pay at counter</option></select>
+          </div>
+          <a class="btn block" href="#tickets">Confirm booking</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tracking">
+      <h2>Live tracking</h2>
+      <p class="lede">Train 701 left Dhaka at 07:30 and is between Bhairab and Comilla.</p>
+
+      <div class="panel">
+        <div class="routewrap">
+          <ol class="route">
+            <li class="done"><span class="stn">Dhaka</span><span class="t">07:30</span></li>
+            <li class="done"><span class="stn">Bhairab</span><span class="t">09:02</span></li>
+            <li class="here"><span class="stn">Comilla</span><span class="t">ETA 10:40</span></li>
+            <li><span class="stn">Feni</span><span class="t">11:35</span></li>
+            <li><span class="stn">Chattogram</span><span class="t">12:45</span></li>
+          </ol>
+        </div>
+        <p style="margin-top:18px" class="small muted">Next stop <b style="color:var(--ink)">Comilla</b>, platform 2. Estimated delay <b style="color:var(--ink)">0 minutes</b>. Last GPS update <span class="num">10:14:32</span>.</p>
+      </div>
+    </section>
+
+    <section class="section" id="tickets">
+      <h2>My tickets</h2>
+      <p class="lede">Show this ticket and a valid ID at the gate.</p>
+
+      <div class="ticket">
+        <div class="body">
+          <span class="label">Subarna Express 701 &middot; AC chair</span>
+          <div class="route-line"><span class="city">Dhaka</span><span class="arrow">&rarr;</span><span class="city">Chattogram</span></div>
+          <dl>
+            <div><dt>Date</dt><dd class="num">20 Dec 2026</dd></div>
+            <div><dt>Departs</dt><dd class="num">07:30</dd></div>
+            <div><dt>Coach</dt><dd>KHA</dd></div>
+            <div><dt>Seats</dt><dd class="num">4A, 4B</dd></div>
+            <div><dt>Passenger</dt><dd>Samin Jawad</dd></div>
+          </dl>
+        </div>
+        <div class="stub">
+          <span class="id">TKT-208841</span>
+          <span class="fare">2,550</span>
+          <span class="small muted">BDT, paid</span>
+          <div class="bars-code" aria-hidden="true"></div>
+          <a class="btn sm ghost" href="#tickets">Cancel ticket</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="alerts">
+      <h2>Alerts</h2>
+      <p class="lede">Delay, platform and safety notices for your trains.</p>
+      <div class="panel">
+        <ul class="feed">
+          <li class="warn"><b>Train 703 delayed by 12 minutes</b><span class="when">09:48</span><p>Signal check near Tongi. New departure 09:27 from platform 5.</p></li>
+          <li class="good"><b>Platform assigned for train 701</b><span class="when">07:02</span><p>Boarding opens at platform 3, 20 minutes before departure.</p></li>
+          <li class="bad"><b>Emergency reported on the Sylhet line</b><span class="when">Yesterday</span><p>Track obstruction cleared. Services have resumed.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="foot">Railway Management System, passenger view. Train names, fares and times are sample data.</p>
+  </main>
+</div>
+</body>
+</html>

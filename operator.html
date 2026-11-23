@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operator Console | Railway Management System</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true"></span>
+      <span><b>Railway</b><span>Management System</span></span>
+    </a>
+    <nav class="nav" aria-label="Operator sections">
+      <a class="on" href="#gps">GPS location</a>
+      <a href="#status">Train status</a>
+      <a href="#emergency">Report emergency</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#log">Incident log</a>
+    </nav>
+    <div class="who">
+      <span class="label">Train operator</span>
+      <b>Rahim Uddin</b>
+      <a href="index.html">Log out</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <span class="label">Operator console</span>
+        <h1>Train 701 &middot; Subarna Express</h1>
+      </div>
+      <p class="stamp">Dhaka &rarr; Chattogram<br>Sample data</p>
+    </header>
+
+    <section class="section" id="gps">
+      <h2>GPS location</h2>
+      <p class="lede">Keep sharing on while the train is moving so passengers and the authority see your position.</p>
+
+      <div class="grid g2">
+        <div class="panel form-stack">
+          <label class="switch" for="gps-on">
+            <input id="gps-on" type="checkbox" checked>
+            <span class="track"></span>
+            <span class="txt">Sharing location</span>
+          </label>
+          <p class="hint">Turn this off only at the depot. Switching off in service alerts the Railway Authority.</p>
+        </div>
+        <div class="panel">
+          <span class="label">Last position sent</span>
+          <dl style="margin:8px 0 0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px">
+            <dt class="muted">Latitude</dt><dd class="num" style="margin:0;text-align:right">23.6038 N</dd>
+            <dt class="muted">Longitude</dt><dd class="num" style="margin:0;text-align:right">91.1058 E</dd>
+            <dt class="muted">Speed</dt><dd class="num" style="margin:0;text-align:right">78 km/h</dd>
+            <dt class="muted">Sent</dt><dd class="num" style="margin:0;text-align:right">10:14:32</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="status">
+      <h2>Update train status</h2>
+      <p class="lede">Passengers see this immediately on their tracking screen.</p>
+
+      <form class="panel form-stack" action="operator.html#status" method="get">
+        <div class="form-grid">
+          <div class="field">
+            <label for="state">Status</label>
+            <select id="state" name="state">
+              <option selected>On time</option><option>Delayed</option><option>Stopped at station</option><option>Technical issue</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="delay">Delay (minutes)</label>
+            <input id="delay" name="delay" type="number" min="0" value="0">
+          </div>
+          <div class="field">
+            <label for="next">Next station</label>
+            <select id="next" name="next"><option selected>Comilla</option><option>Feni</option><option>Chattogram</option></select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="note">Note for passengers (optional)</label>
+          <input id="note" name="note" type="text" placeholder="For example: waiting for signal clearance">
+        </div>
+        <div class="actions"><button class="btn" type="submit">Send update</button></div>
+      </form>
+    </section>
+
+    <section class="section" id="emergency">
+      <h2>Report emergency</h2>
+      <p class="lede">Sends your position and details to the Railway Authority and railway police at once.</p>
+
+      <form class="panel form-stack" action="operator.html#emergency" method="get">
+        <fieldset style="border:0;padding:0;margin:0;min-width:0">
+          <legend class="label" style="margin-bottom:10px">Type</legend>
+          <div class="choices cols">
+            <label class="choice"><input type="radio" name="kind" checked><span class="box"><b>Technical failure</b><span>Engine, brakes or signals</span></span></label>
+            <label class="choice"><input type="radio" name="kind"><span class="box"><b>Medical emergency</b><span>Passenger or crew</span></span></label>
+            <label class="choice"><input type="radio" name="kind"><span class="box"><b>Security threat</b><span>Theft or disturbance</span></span></label>
+            <label class="choice"><input type="radio" name="kind"><span class="box"><b>Track obstruction</b><span>Blocked or damaged line</span></span></label>
+          </div>
+        </fieldset>
+        <div class="form-grid">
+          <div class="field">
+            <label for="where">Location</label>
+            <input id="where" type="text" value="23.6038 N, 91.1058 E (near Comilla)" readonly>
+          </div>
+          <div class="field">
+            <label for="people">People affected</label>
+            <input id="people" name="people" type="number" min="0" value="0">
+          </div>
+        </div>
+        <div class="field">
+          <label for="desc">What is happening</label>
+          <textarea id="desc" name="desc" placeholder="Describe the problem in one or two sentences."></textarea>
+        </div>
+        <div class="actions"><button class="btn danger" type="submit">Send emergency alert</button></div>
+      </form>
+    </section>
+
+    <section class="section" id="schedule">
+      <h2>Schedule and route guidance</h2>
+      <p class="lede">Planned times for this run. Platform numbers are set by the authority.</p>
+
+      <div class="panel">
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Station</th><th>Arrive</th><th>Depart</th><th>Platform</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><b>Dhaka</b></td><td class="num">&ndash;</td><td class="num">07:30</td><td class="num">3</td><td><span class="pill good">Departed</span></td></tr>
+              <tr><td><b>Bhairab</b></td><td class="num">09:00</td><td class="num">09:02</td><td class="num">1</td><td><span class="pill good">Departed</span></td></tr>
+              <tr class="sel"><td><b>Comilla</b></td><td class="num">10:40</td><td class="num">10:45</td><td class="num">2</td><td><span class="pill info">Next stop</span></td></tr>
+              <tr><td><b>Feni</b></td><td class="num">11:35</td><td class="num">11:37</td><td class="num">1</td><td><span class="pill">Upcoming</span></td></tr>
+              <tr><td><b>Chattogram</b></td><td class="num">12:45</td><td class="num">&ndash;</td><td class="num">4</td><td><span class="pill">Upcoming</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="log">
+      <h2>Incident log</h2>
+      <p class="lede">Reports you sent in the last 30 days.</p>
+      <div class="panel">
+        <ul class="feed">
+          <li class="warn"><b>Technical failure: door sensor, coach CHA</b><span class="when">12 Nov, 08:20</span><p>Resolved at Bhairab. No delay to the schedule.</p></li>
+          <li class="bad"><b>Track obstruction near Feni</b><span class="when">02 Nov, 14:05</span><p>Cleared by track crew after 18 minutes. Railway Authority acknowledged.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="foot">Railway Management System, operator view. Names, times and coordinates are sample data.</p>
+  </main>
+</div>
+</body>
+</html>

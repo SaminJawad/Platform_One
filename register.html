@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create Account | Railway Management System</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="auth">
+
+  <section class="sign" aria-label="What passengers get">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true"></span>
+      <span><b>Railway</b><span>Management System</span></span>
+    </a>
+
+    <div>
+      <h1>Travel with fewer surprises.</h1>
+      <p class="lead">A passenger account lets you plan, book and follow your journey in one place.</p>
+    </div>
+
+    <ul>
+      <li>Live train location and arrival time<span>See where the train is and when it reaches your station.</span></li>
+      <li>Seat availability and women-only coaches<span>Check what is free before you pick a train.</span></li>
+      <li>Delay and emergency alerts<span>Get notified when a platform or schedule changes.</span></li>
+    </ul>
+  </section>
+
+  <section class="formside">
+    <form class="formcard" action="register.html" method="get">
+      <div>
+        <span class="label">Passenger registration</span>
+        <h2>Create your account</h2>
+      </div>
+
+      <div class="field">
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" autocomplete="name" placeholder="As on your ID">
+      </div>
+      <div class="form-grid">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com">
+        </div>
+        <div class="field">
+          <label for="phone">Mobile number</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="01XXXXXXXXX">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters">
+        </div>
+        <div class="field">
+          <label for="confirm">Confirm password</label>
+          <input id="confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Repeat password">
+        </div>
+      </div>
+
+      <label class="check" for="terms">
+        <input id="terms" name="terms" type="checkbox">
+        <span>I accept the terms of service and the privacy policy, including use of my travel data to provide alerts.</span>
+      </label>
+
+      <div class="actions">
+        <a class="btn" href="passenger.html">Create account</a>
+        <a class="btn ghost" href="index.html">Back to log in</a>
+      </div>
+      <p class="hint">Demo build: the button opens the passenger dashboard. No data is sent anywhere.</p>
+    </form>
+  </section>
+
+</div>
+</body>
+</html>
