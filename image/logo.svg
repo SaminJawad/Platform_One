@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Railway Management System logo">
+  <rect width="256" height="256" rx="64" fill="#EFF6E0"/>
+  <g transform="translate(61 32) scale(.6)">
+    <path fill="#124559" d="M0 0h70v205H35V35H0zM90 0h35v205H90z"/>
+    <rect y="221" width="158" height="36" fill="#598392"/>
+  </g>
+</svg>
